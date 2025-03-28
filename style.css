@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    background-image: url(./IMAGES/alizee-andreani-1.png); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 250vh;
+    margin: 0;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
+.container{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   flex: 1;
+}
+.preguntas{
+    text-align: left;
+    font-style: oblique;
+}
+button{
+   font-size: 18px;
+   color: #f87ad6;
+   border-radius: 10px;
+   cursor: pointer;
+   padding: 10px 10px;
+   background-color: #661a75;
+}
+img{
+    display: flex;
+    padding: 10px;
+    margin: 100px;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+.principio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2.5);
+    color: #f87ad6;
+}
+.principio img{
+ width: 100px;
+ margin: 100px;
+ margin-right: 20px;
+}
+main{
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #661a75;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    line-height: 1.5;
+    position: relative;
+    opacity: 0.6;
+    color: white;
+    font-size: 20px;
+    }
+    footer{
+        width: 80%;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #661a75;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        position: relative;
+        opacity: 0.6;
+        color: white;
+    }     
+
+
