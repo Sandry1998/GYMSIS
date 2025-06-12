@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymSis</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="../IMAGES/R.png"> 
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 18px 0 10px 0; gap: 32px;">
+          <img src="../IMAGES/woman-holding-dumbbells-illustration-black-color-silhouette-vector.png" style="width: 60px; height: 60px; border-radius: 12px; box-shadow: 0 2px 8px #3d0c4a55;" alt="GymSis">
+          <h1 style="font-size: 2rem; margin: 0; color: #f87ad6; text-shadow: 1px 1px 4px #3d0c4a, 0 0 2px #fff; letter-spacing: 1px; font-weight: bold; text-transform: uppercase;">GYM SIS</h1>
+          <nav style="display: flex; gap: 24px; margin-left: 120px;">
+            <a href="./formulario.html" class="nav-link"><span class="nav-btn nav-btn-lg">FORMULARIO</span></a>
+            <a href="./calculadora_macros.html" class="nav-link"><span class="nav-btn nav-btn-lg">CALCULADORA</span></a>
+            <a href="./informacion.html" class="nav-link"><span class="nav-btn nav-btn-lg">INFORMACIÓN</span></a>
+          </nav>
+        </div>
+    </header>
+    <style>
+      .nav-link {
+        text-decoration: none;
+        display: flex;
+      }
+      .nav-btn {
+        display: inline-block;
+        font-size: 0.9rem !important;
+        padding: 4px 12px !important;
+        border-radius: 8px !important;
+        font-weight: bold !important;
+        letter-spacing: 1px !important;
+        background: #661a75 !important;
+        color: #fff !important;
+        border: none !important;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(61,12,74,0.08);
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+      }
+      .nav-btn-lg {
+        font-size: 1.1rem !important;
+        padding: 7px 18px !important;
+        border-radius: 10px !important;
+      }
+      .nav-btn:hover, .nav-btn:focus {
+        background: #f87ad6 !important;
+        color: #3d0c4a !important;
+        box-shadow: 0 4px 16px #f87ad6aa;
+        outline: none;
+      }
+    </style>
+    <!--PONER UN VIDEO DE FONDO EN VEZ DE UNA FOTO Y PONER LAS FOTOS DE PORTADA CON ANIMACION-->
+    <main>
+        <p>
+       "Este es un espacio reservado para todas aquellas chicas que quieren un estilo de vida saludable y activo.
+       Luciendo mejor que nunca, con la mejor versión de ti misma. Dejando de lado aquellos bulos que dicen que por entrenar ejercicios de fuerza
+       y pesado nos volveremos hombres, cuando eso desde hace mucho tiempo se ha demostrado que no es asi.
+       Es solo un <strong><em>"BULO"</em></strong> 
+        </p>
+    </main>
+    <div class="carrusel">
+        <input type="radio" name="carrusel" id="imagen1" checked>
+        <input type="radio" name="carrusel" id="imagen2">
+        <input type="radio" name="carrusel" id="imagen3">
+        <input type="radio" name="carrusel" id="imagen4">
+    
+        <div class="imagenes">
+          <div class="imagen">
+            <img src="../CARRUSEL/2ad94859-faa3-4925-8670-9ccfdaa5f9ef_source-aspect-ratio_default_0.png" alt="Imagen 1">
+          </div>
+          <div class="imagen">
+            <img src="../CARRUSEL/433723-Kycb_3840x2400.png" alt="Imagen 2">
+          </div>
+          <div class="imagen">
+            <img src="../CARRUSEL/Fitness_Gym_Workout_Dumbbells_585792_1280x853.png" alt="Imagen 3">
+          </div>
+          <div class="imagen">
+            <img src="../CARRUSEL/mujer-haciendo-ejercicio-gimnasio-sola_1303-16198.png" alt="Imagen 4">
+          </div>
+        </div>
+    <div class="navegacion">
+          <label for="imagen1"></label>
+          <label for="imagen2"></label>
+          <label for="imagen3"></label>
+          <label for="imagen4"></label>
+        </div>
+      </div>
+    <footer>
+    <p><strong>&copy; 2025 GYM SIS</strong></p>
+    <ul>
+        <strong><li><a href="https://termly.io/es/recursos/articulos/privacy-policy-for-gym-websites/">POLÍTICA DE PRIVACIDAD</a></li></strong>
+    </ul>
+</footer>
+</body>
+</html>

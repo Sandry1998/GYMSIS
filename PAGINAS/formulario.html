@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymSis</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="../IMAGES/R.png"> 
+</head>
+<body>
+  <header>
+  <section class="principio" style="display: flex; align-items: center; justify-content: center; gap: 18px;">
+    <img src="../IMAGES/woman-holding-dumbbells-illustration-black-color-silhouette-vector.png" style="width: 70px; height: 70px; border-radius: 12px;" alt="GymSis">
+    <h1 style="font-size: 2.2rem; margin: 0; color: #f87ad6; text-shadow: 2px 2px 8px #3d0c4a, 0 0 4px #fff; letter-spacing: 1.5px; font-weight: bold; text-transform: uppercase;">FORMULARIO GYMSIS</h1>
+  </section>
+</header>
+  <form>  
+    <h2><strong>FICHA TECNICA</strong></h2>
+    <div class="informacion-personal">
+      <div class="nombre">
+        <label for="nombre" class="form-label">NOMBRE</label>
+        <input type="text" id="exampleInputNombre" name="form-control" required>
+        <br><br>
+      </div>  
+      <div class="apellidos">
+          <label for="apellidos">APELLIDOS</label>
+          <input type="text" id="apellidos" name="apellidos" required>
+          <br><br>
+      </div>
+      <div class="DNI">
+          <label for="dni">DNI</label>
+          <input type="text" id="dni" name="dni" required>
+          <br><br>
+      </div>
+      <div class="Telefono">
+          <label for="telefono">TELEFONO</label>
+          <input type="text" id="telefono" name="telefono" required>
+          <br><br>
+      </div>
+      <div class="Email">
+          <label for="email">EMAIL</label>
+          <input type="email" class="form-control" id="coldFormLabel" placeholder="example@gmail.es" required>
+          <br><br>
+      </div>
+      <div class="reservar-plaza">
+              <label for="hora">RESERVA TU PLAZA</label>
+              <input type="date" id="ficha_chicas" name="ficha_chicas" required>
+              <br><br>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px; justify-content: center;">
+        <label style="margin: 0;"><strong for="reserva-con-nosotras">HORA DE CUIDARTE</strong></label>
+        <button type="button" class="reservar" onclick="window.location.href='calculadora_macros.html'">CALCULADORA</button>
+      </div>
+      <br><br>
+    </div>
+    <footer style="background: none; box-shadow: none; border: none;">
+      <li style="list-style: none; margin: 0; padding: 0;">
+        <a href="./index.html" title="Inicio" style="background: none; box-shadow: none; border: none; padding: 0;">
+          <img src="../ICONOS/cerrar-sesion.png" alt="Salir" style="width:40px; height:40px; vertical-align:middle; background: none; box-shadow: none; border: none;">
+        </a>
+      </li>
+    </footer>
+    </form>     
+</body>
+</html>

@@ -1,0 +1,303 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    background-image: url(../IMAGES/alizee-andreani-1.png); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 4rem;
+}
+h2, h3 {
+    font-size: 1.5rem;
+}
+label {
+    display: block;
+    margin-top: 6px;
+    font-weight: bold;
+    font-size: 18px;
+}
+select, input[type="number"], input, textarea {
+    width: 60%;
+    padding: 4px 6px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 18px;
+    display: inline-block;
+}
+.actividad-group {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    padding-left: 32px;
+}
+.actividad-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: normal;
+    margin-bottom: 2px;
+    margin-right: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    justify-content: flex-start;
+    width: auto;
+}
+.actividad-group input[type="radio"] {
+    margin: 0;
+    vertical-align: middle;
+}
+button {
+    margin-top: 0;
+    padding: 4px 10px;
+    width: auto;
+    min-width: 80px;
+    max-width: 150px;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: #3d0c4a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: inline-block;
+}
+button:hover {
+    background-color: #4e1760;
+    color: #fff;
+}
+#resultado-macros {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    background: #fff;
+    color: #111;
+}
+#resultado-macros h3, #resultado-macros strong {
+    color: #111;
+}
+.container{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   flex: 1;
+}
+.container button {
+    width: 200px;
+    min-width: 150px;
+    max-width: 100%;
+    font-size: 18px;
+    padding: 12px 0;
+    margin: 10px 0;
+}
+.preguntas{
+    text-align: left;
+    font-style: oblique;
+}
+.preguntas h1 {
+    text-align: center;
+    color: #f87ad6;
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #3d0c4a, 0 0 4px #fff;
+    margin-bottom: 16px;
+    margin-top: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.preguntas h2 {
+    text-align: center;
+    color: #f87ad6;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 6px #3d0c4a, 0 0 2px #fff;
+    margin-bottom: 2px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.preguntas p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+em{
+  color: red;
+}
+strong{
+  color:#fbf8fc;
+}
+a{
+  color: white;
+}
+.principio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2.5);
+    color: #f87ad6;
+}
+.principio img{
+ width: 100px;
+ margin: 100px;
+ margin-right: 20px;
+ border-radius: 20px;
+ box-shadow: 0px 4px 8px rgba(0, 0, 0, 2.5);
+}
+main,
+form{
+     width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    background-color: #661a75;
+    border-radius: 16px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    line-height: 1.5;
+    position: relative;
+    opacity: 0.85;
+    color: white;
+    font-size: 24px;
+}
+main p {
+    max-width: 600px;
+    width: 100%;
+    margin: 40px auto;
+    font-size: 22px;
+    line-height: 1.7;
+    text-align: center;
+}
+footer{
+    width: 70%;
+    max-width: 600px;
+    margin: 35px auto;
+    padding: 20px;
+    background-color: #661a75;
+    border-radius: 16px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    position: relative;
+    opacity: 0.85;
+    color: white;
+    font-size: 18px;
+}    
+form .footer-form {
+    width: 70%;
+    max-width: 600px;
+    margin: 35px auto 0 auto;
+    padding: 20px;
+    background-color: #661a75;
+    border-radius: 16px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    position: relative;
+    opacity: 0.85;
+    color: white;
+    font-size: 18px;
+}
+.carrusel {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+.imagenes {
+    display: flex;
+    animation: moverCarrusel 12s infinite;
+}
+.imagen {
+    width: 100%;
+    flex-shrink: 0;
+}
+.imagen img {
+    width: 100%;
+    height: auto;
+}
+@keyframes moverCarrusel {
+    0% {
+      transform: translateX(0%);
+    }
+    25% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(-200%);
+    }
+    75% {
+      transform: translateX(-300%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+}
+.social-icons{
+  margin: 10px 0;
+}
+.social-icons img{
+  width: 50px;
+  margin-right: 10px;
+}
+@media (max-width: 700px) {
+    main, form {
+        width: 98%;
+        max-width: 98vw;
+        margin: 10px auto;
+        padding: 10px 2vw;
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2, h3 {
+        font-size: 1.2rem;
+    }
+    label, input, select, textarea, button {
+        font-size: 13px;
+    }
+    .principio {
+        font-size: 2.5rem;
+    }
+    .principio img {
+        width: 60px;
+        margin: 20px;
+    }
+}
+@media (max-width: 400px) {
+    main, form {
+        padding: 2vw 1vw;
+    }
+    h1 {
+        font-size: 1.7rem;
+    }
+}
