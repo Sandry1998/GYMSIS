@@ -153,6 +153,22 @@
 
         // Mostrar resultados
         mostrarResultados(calorias, gramosProteina, gramosCarbohidratos, gramosGrasas);
+
+        // GUARDAR REGISTRO FINAL
+        const datosPersonales = JSON.parse(localStorage.getItem('datosPersonalesGymSis') || '{}');
+        if (datosPersonales && datosPersonales.nombre) {
+          const registroFinal = {
+            ...datosPersonales,
+            genero: genero,
+            edad: edad,
+            actividad: actividad.value,
+            macros: `Calorías: ${calorias} kcal\nProteínas: ${gramosProteina} g\nCarbohidratos: ${gramosCarbohidratos} g\nGrasas: ${gramosGrasas} g`
+          };
+          let registros = JSON.parse(localStorage.getItem('registrosGymSis') || '[]');
+          registros.push(registroFinal);
+          localStorage.setItem('registrosGymSis', JSON.stringify(registros));
+          localStorage.removeItem('datosPersonalesGymSis');
+        }
       });
 
       function mostrarResultados(calorias, proteinas, carbohidratos, grasas) {
@@ -182,6 +198,26 @@
             </a>
           </div>
         `;
+      }
+
+      function guardarRegistroUsuario(macrosData) {
+        // Obtener datos personales guardados
+        const datosPersonales = JSON.parse(localStorage.getItem('datosPersonalesGymSis') || '{}');
+        // Combinar datos
+        const registro = {
+          nombre: datosPersonales.nombre || '',
+          email: datosPersonales.email || '',
+          edad: macrosData.edad || '',
+          genero: macrosData.genero || '',
+          actividad: macrosData.actividad || '',
+          macros: macrosData.macros || ''
+        };
+        // Guardar en array de registros
+        let registros = JSON.parse(localStorage.getItem('registrosGymSis') || '[]');
+        registros.push(registro);
+        localStorage.setItem('registrosGymSis', JSON.stringify(registros));
+        // Limpiar datos personales temporales
+        localStorage.removeItem('datosPersonalesGymSis');
       }
     });
   </script>

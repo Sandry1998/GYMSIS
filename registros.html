@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros - GymSis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 18px 0 10px 0; gap: 32px;">
+          <img src="./IMAGES/woman-holding-dumbbells-illustration-black-color-silhouette-vector.png" style="width: 60px; height: 60px; border-radius: 12px; box-shadow: 0 2px 8px #3d0c4a55;" alt="GymSis">
+          <h1 style="font-size: 2rem; margin: 0; color: #f87ad6; text-shadow: 1px 1px 4px #3d0c4a, 0 0 2px #fff; letter-spacing: 1px; font-weight: bold; text-transform: uppercase;">REGISTROS GYMSIS</h1>
+          <nav style="display: flex; gap: 24px; margin-left: 120px;">
+            <a href="index.html" class="nav-link"><span class="nav-btn nav-btn-lg">INICIO</span></a>
+            <a href="formulario.html" class="nav-link"><span class="nav-btn nav-btn-lg">FORMULARIO</span></a>
+            <a href="calculadora_macros.html" class="nav-link"><span class="nav-btn nav-btn-lg">CALCULADORA</span></a>
+            <a href="registros.html" class="nav-link"><span class="nav-btn nav-btn-lg">REGISTROS</span></a>
+          </nav>
+        </div>
+    </header>
+    <main style="max-width:1450px;width:98vw;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <h2 style="text-align:center;color:#f87ad6;font-size:2rem;font-weight:bold;text-shadow:1px 1px 6px #3d0c4a, 0 0 2px #fff;margin-bottom:16px;margin-top:0;letter-spacing:2px;text-transform:uppercase;">Datos Registrados</h2>
+        <div id="registros-lista" style="margin:0 auto;max-width:1200px;width:100%;display:flex;justify-content:center;align-items:center;"></div>
+        <div id="editar-form" style="display:none;max-width:500px;margin:30px auto;background:#661a75;padding:24px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.25);color:#fff;">
+          <h3 style="color:#f87ad6;">Editar Registro</h3>
+          <form id="form-editar">
+            <label>Nombre:<input type="text" id="edit-nombre" required></label><br><br>
+            <label>Apellidos:<input type="text" id="edit-apellidos" required></label><br><br>
+            <label>DNI:<input type="text" id="edit-dni" required></label><br><br>
+            <label>Teléfono:<input type="text" id="edit-telefono" required></label><br><br>
+            <label>Email:<input type="email" id="edit-email" required></label><br><br>
+            <label>Fecha Reserva:<input type="date" id="edit-fecha" required></label><br><br>
+            <label>Género:<input type="text" id="edit-genero"></label><br><br>
+            <label>Edad:<input type="text" id="edit-edad"></label><br><br>
+            <label>Actividad:<input type="text" id="edit-actividad"></label><br><br>
+            <label>Macros:<textarea id="edit-macros" rows="2"></textarea></label><br><br>
+            <button type="submit" class="nav-btn nav-btn-lg">Guardar Cambios</button>
+            <button type="button" onclick="cancelarEdicion()" class="nav-btn nav-btn-lg" style="background:#3d0c4a;">Cancelar</button>
+          </form>
+        </div>
+    </main>
+    <footer>
+      <p><strong>&copy; 2025 GYM SIS</strong></p>
+      <ul>
+        <strong><li><a href="https://termly.io/es/recursos/articulos/privacy-policy-for-gym-websites/">POLÍTICA DE PRIVACIDAD</a></li></strong>
+      </ul>
+    </footer>
+    <script>
+    // Mostrar registros guardados en LocalStorage con opción de editar
+    function mostrarRegistros() {
+        const registros = JSON.parse(localStorage.getItem('registrosGymSis') || '[]');
+        const contenedor = document.getElementById('registros-lista');
+        // Eliminar cualquier div de botones anterior
+        if(contenedor.nextSibling && contenedor.nextSibling.classList && contenedor.nextSibling.classList.contains('tabla-botones')) {
+          contenedor.nextSibling.remove();
+        }
+        if (registros.length === 0) {
+            contenedor.innerHTML = '<p style="color:#f87ad6;text-align:center;font-size:1.3rem;">No hay registros aún.</p>';
+            return;
+        }
+        let html = `
+        <div style="overflow-x:auto; width:100%; display:flex; justify-content:center;">
+        <table style="margin:0 auto;background:#fff;color:#111;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.15);margin-bottom:10px;table-layout:fixed;min-width:1200px;max-width:98vw;width:auto;font-size:12px;">
+        <thead>
+        <tr style="background:#3d0c4a;color:#f87ad6;">
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>DNI</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Fecha Reserva</th>
+            <th>Género</th>
+            <th>Edad</th>
+            <th>Actividad</th>
+            <th>Macros</th>
+        </tr>
+        </thead><tbody>`;
+        registros.forEach((r, i) => {
+            html += `<tr>`;
+            html += `<td>${r.nombre||''}</td>`;
+            html += `<td>${r.apellidos||''}</td>`;
+            html += `<td>${r.dni||''}</td>`;
+            html += `<td>${r.telefono||''}</td>`;
+            html += `<td>${r.email||''}</td>`;
+            html += `<td>${r.fecha||''}</td>`;
+            html += `<td>${r.genero||''}</td>`;
+            html += `<td>${r.edad||''}</td>`;
+            html += `<td>${r.actividad||''}</td>`;
+            html += `<td style="white-space:pre-line;">${r.macros||''}</td>`;
+            html += `</tr>`;
+        });
+        html += '</tbody></table></div>';
+        contenedor.innerHTML = html;
+        // Botones abajo de la tabla, fuera del div de overflow
+        const botonesDiv = document.createElement('div');
+        botonesDiv.className = 'tabla-botones';
+        botonesDiv.style.display = 'flex';
+        botonesDiv.style.justifyContent = 'center';
+        botonesDiv.style.gap = '24px';
+        botonesDiv.style.margin = '18px 0 0 0';
+        botonesDiv.innerHTML = `
+          <button onclick='editarUltimoRegistro()' class='nav-btn nav-btn-lg' style='padding:8px 24px;font-size:14px;'>Editar</button>
+          <button onclick='eliminarUltimoRegistro()' class='nav-btn nav-btn-lg' style='padding:8px 24px;font-size:14px;background:#c0392b;'>Eliminar</button>
+        `;
+        contenedor.parentNode.insertBefore(botonesDiv, contenedor.nextSibling);
+    }
+
+    function editarRegistro(idx) {
+        const registros = JSON.parse(localStorage.getItem('registrosGymSis') || '[]');
+        const r = registros[idx];
+        document.getElementById('editar-form').style.display = 'block';
+        document.getElementById('edit-nombre').value = r.nombre||'';
+        document.getElementById('edit-apellidos').value = r.apellidos||'';
+        document.getElementById('edit-dni').value = r.dni||'';
+        document.getElementById('edit-telefono').value = r.telefono||'';
+        document.getElementById('edit-email').value = r.email||'';
+        document.getElementById('edit-fecha').value = r.fecha||'';
+        document.getElementById('edit-genero').value = r.genero||'';
+        document.getElementById('edit-edad').value = r.edad||'';
+        document.getElementById('edit-actividad').value = r.actividad||'';
+        document.getElementById('edit-macros').value = r.macros||'';
+        document.getElementById('form-editar').onsubmit = function(e) {
+          e.preventDefault();
+          registros[idx] = {
+            nombre: document.getElementById('edit-nombre').value,
+            apellidos: document.getElementById('edit-apellidos').value,
+            dni: document.getElementById('edit-dni').value,
+            telefono: document.getElementById('edit-telefono').value,
+            email: document.getElementById('edit-email').value,
+            fecha: document.getElementById('edit-fecha').value,
+            genero: document.getElementById('edit-genero').value,
+            edad: document.getElementById('edit-edad').value,
+            actividad: document.getElementById('edit-actividad').value,
+            macros: document.getElementById('edit-macros').value
+          };
+          localStorage.setItem('registrosGymSis', JSON.stringify(registros));
+          document.getElementById('editar-form').style.display = 'none';
+          mostrarRegistros();
+        };
+    }
+    function eliminarRegistro(idx) {
+        if(confirm('¿Seguro que quieres eliminar este registro?')) {
+            let registros = JSON.parse(localStorage.getItem('registrosGymSis') || '[]');
+            registros.splice(idx, 1);
+            localStorage.setItem('registrosGymSis', JSON.stringify(registros));
+            mostrarRegistros();
+        }
+    }
+    function cancelarEdicion() {
+      document.getElementById('editar-form').style.display = 'none';
+    }
+    // Editar y eliminar último registro (botones abajo)
+    function editarUltimoRegistro() {
+        const registros = JSON.parse(localStorage.getItem('registrosGymSis') || '[]');
+        if(registros.length > 0) editarRegistro(registros.length-1);
+    }
+    function eliminarUltimoRegistro() {
+        const registros = JSON.parse(localStorage.getItem('registrosGymSis') || '[]');
+        if(registros.length > 0) eliminarRegistro(registros.length-1);
+    }
+    window.onload = mostrarRegistros;
+    </script>
+    <style>
+#registros-lista {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+#registros-lista table {
+  margin: 0 auto !important;
+}
+      .nav-link {
+        text-decoration: none;
+        display: flex;
+      }
+      .nav-btn {
+        display: inline-block;
+        font-size: 0.9rem !important;
+        padding: 4px 12px !important;
+        border-radius: 8px !important;
+        font-weight: bold !important;
+        letter-spacing: 1px !important;
+        background: #661a75 !important;
+        color: #fff !important;
+        border: none !important;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(61,12,74,0.08);
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+      }
+      .nav-btn-lg {
+        font-size: 1.1rem !important;
+        padding: 7px 18px !important;
+        border-radius: 10px !important;
+      }
+      .nav-btn:hover, .nav-btn:focus {
+        background: #f87ad6 !important;
+        color: #3d0c4a !important;
+        box-shadow: 0 4px 16px #f87ad6aa;
+        outline: none;
+      }
+      /* Centrado y responsive tabla registros */
+.tabla-centro {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto 0 auto;
+  max-width: 100vw;
+}
+.tabla-scroll {
+  width: 100%;
+  max-width: 1200px;
+  overflow-x: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.tabla-registros {
+  background: #fff;
+  color: #111;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  margin-bottom: 10px;
+  table-layout: fixed;
+  min-width: 1450px;
+  max-width: 100%;
+  width: 100%;
+  font-size: 15px;
+  border-collapse: collapse;
+  border: 4px solid #f87ad6;
+}
+.tabla-registros th, .tabla-registros td {
+  padding: 10px 6px;
+  word-break: break-word;
+  text-align: center;
+}
+.tabla-registros thead tr {
+  background: #3d0c4a;
+  color: #f87ad6;
+}
+.tabla-registros tbody tr {
+  background: rgba(248,122,214,0.07);
+  height: 38px;
+}
+@media (max-width: 1500px) {
+  .tabla-registros, .tabla-scroll {
+    min-width: 1100px;
+    max-width: 98vw;
+  }
+}
+@media (max-width: 1100px) {
+  .tabla-registros, .tabla-scroll {
+    min-width: 700px;
+    max-width: 99vw;
+  }
+}
+@media (max-width: 700px) {
+  .tabla-registros, .tabla-scroll {
+    min-width: 400px;
+    max-width: 100vw;
+  }
+  .tabla-registros th, .tabla-registros td {
+    font-size: 11px;
+    padding: 6px 2px;
+  }
+}
+    </style>
+</body>
+</html>

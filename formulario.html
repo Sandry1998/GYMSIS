@@ -14,7 +14,7 @@
     <h1 style="font-size: 2.2rem; margin: 0; color: #f87ad6; text-shadow: 2px 2px 8px #3d0c4a, 0 0 4px #fff; letter-spacing: 1.5px; font-weight: bold; text-transform: uppercase;">FORMULARIO GYMSIS</h1>
   </section>
 </header>
-  <form>  
+  <form onsubmit="guardarDatosPersonales(event)">  
     <h2><strong>FICHA TECNICA</strong></h2>
     <div class="informacion-personal">
       <div class="nombre">
@@ -48,8 +48,7 @@
               <br><br>
       </div>
       <div style="display: flex; align-items: center; gap: 16px; justify-content: center;">
-        <label style="margin: 0;"><strong for="reserva-con-nosotras">HORA DE CUIDARTE</strong></label>
-        <button type="button" class="reservar" onclick="window.location.href='calculadora_macros.html'">CALCULADORA</button>
+        <button type="submit" class="registrar-btn">Continuar</button>
       </div>
       <br><br>
     </div>
@@ -60,6 +59,43 @@
         </a>
       </li>
     </footer>
-    </form>     
+  </form>     
+  <script>
+function guardarDatosPersonales(event) {
+  event.preventDefault();
+  const datos = {
+    nombre: document.getElementById('exampleInputNombre').value,
+    apellidos: document.getElementById('apellidos').value,
+    dni: document.getElementById('dni').value,
+    telefono: document.getElementById('telefono').value,
+    email: document.getElementById('coldFormLabel').value,
+    fecha: document.getElementById('ficha_chicas').value,
+    genero: '',
+    edad: '',
+    actividad: '',
+    macros: ''
+  };
+  // Guardar temporal para la calculadora
+  localStorage.setItem('datosPersonalesGymSis', JSON.stringify(datos));
+  window.location.href = 'calculadora_macros.html';
+}
+</script>
+<style>
+  /* Centrar y ajustar tabla de registros */
+  #registros-lista table {
+    margin: 0 auto;
+    table-layout: fixed;
+    word-break: break-word;
+    width: 100%;
+    max-width: 900px;
+  }
+  #registros-lista th, #registros-lista td {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 160px;
+    text-align: center;
+    vertical-align: middle;
+  }
+</style>
 </body>
 </html>
