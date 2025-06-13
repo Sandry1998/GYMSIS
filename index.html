@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./IMAGES/R.png"> 
 </head>
-<body>
+<body style="overflow: hidden !important;">
+    <video class="video-background" src="./IMAGES/Andrea de la Herrán, Halterofilia 49Kg_High.mp4" autoplay loop muted playsinline></video>
     <header>
         <div style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 18px 0 10px 0; gap: 32px;">
           <img src="./IMAGES/woman-holding-dumbbells-illustration-black-color-silhouette-vector.png" style="width: 60px; height: 60px; border-radius: 12px; box-shadow: 0 2px 8px #3d0c4a55;" alt="GymSis">
@@ -21,6 +22,28 @@
         </div>
     </header>
     <style>
+      /* Elimina el sticky header solo en index.html */
+      header {
+        position: static !important;
+        background: none !important;
+        box-shadow: none !important;
+        padding: 18px 0 10px 0 !important;
+      }
+      header h1 {
+        font-size: 2rem !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      header nav {
+        margin-left: 120px !important;
+        gap: 24px !important;
+      }
+      header img {
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 2px 8px #3d0c4a55 !important;
+      }
       .nav-link {
         text-decoration: none;
         display: flex;
@@ -56,11 +79,12 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         gap: 32px;
         max-width: 1200px;
-        margin: 32px auto 0 auto;
+        margin: 7vh auto 0 auto;
         width: 95vw;
+        min-height: 70vh;
       }
       main {
         flex: 1 1 320px;
@@ -93,14 +117,41 @@
         max-width: 400px;
         min-width: 200px;
         margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .carrusel .imagenes {
+        width: 100%;
+        max-width: 340px;
+        min-width: 180px;
+        aspect-ratio: 4/3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carrusel .imagen img {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px #3d0c4a33;
+      }
+      .navegacion {
+        display: none !important;
       }
       @media (max-width: 900px) {
         .main-carrusel-container {
           flex-direction: column;
           align-items: center;
           gap: 18px;
+          min-height: 0;
         }
         main, .carrusel {
+          max-width: 98vw;
+        }
+        .carrusel .imagenes {
           max-width: 98vw;
         }
       }
@@ -118,42 +169,15 @@
         }
       }
     </style>
-    <div class="main-carrusel-container">
-      <main>
-        <p>
-       "Este es un espacio reservado para todas aquellas chicas que quieren un estilo de vida saludable y activo.
-       Luciendo mejor que nunca, con la mejor versión de ti misma. Dejando de lado aquellos bulos que dicen que por entrenar ejercicios de fuerza
-       y pesado nos volveremos hombres, cuando eso desde hace mucho tiempo se ha demostrado que no es asi.
-       Es solo un <strong><em>"BULO"</em></strong> 
+    <div class="main-carrusel-container" style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
+      <main style="margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+        <p style="max-width: 700px; width: 90vw; background: #f7e6f3; border-radius: 16px; padding: 24px 32px; font-size: 1.2rem; color: #3d0c4a; box-shadow: 0 2px 8px #3d0c4a11; text-align: center;">
+         "Este es un espacio reservado para todas aquellas chicas que quieren un estilo de vida saludable y activo.
+         Luciendo mejor que nunca, con la mejor versión de ti misma. Dejando de lado aquellos bulos que dicen que por entrenar ejercicios de fuerza
+         y pesado nos volveremos hombres, cuando eso desde hace mucho tiempo se ha demostrado que no es asi.
+         Es solo un <strong><em>"BULO"</em></strong> 
         </p>
       </main>
-      <div class="carrusel">
-        <input type="radio" name="carrusel" id="imagen1" checked>
-        <input type="radio" name="carrusel" id="imagen2">
-        <input type="radio" name="carrusel" id="imagen3">
-        <input type="radio" name="carrusel" id="imagen4">
-    
-        <div class="imagenes">
-          <div class="imagen">
-            <img src="./CARRUSEL/2ad94859-faa3-4925-8670-9ccfdaa5f9ef_source-aspect-ratio_default_0.png" alt="Imagen 1">
-          </div>
-          <div class="imagen">
-            <img src="./CARRUSEL/433723-Kycb_3840x2400.png" alt="Imagen 2">
-          </div>
-          <div class="imagen">
-            <img src="./CARRUSEL/Fitness_Gym_Workout_Dumbbells_585792_1280x853.png" alt="Imagen 3">
-          </div>
-          <div class="imagen">
-            <img src="./CARRUSEL/mujer-haciendo-ejercicio-gimnasio-sola_1303-16198.png" alt="Imagen 4">
-          </div>
-        </div>
-    <div class="navegacion">
-          <label for="imagen1"></label>
-          <label for="imagen2"></label>
-          <label for="imagen3"></label>
-          <label for="imagen4"></label>
-        </div>
-      </div>
     </div>
     <footer>
     <p><strong>&copy; 2025 GYM SIS</strong></p>
