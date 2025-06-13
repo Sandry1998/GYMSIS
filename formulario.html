@@ -33,11 +33,14 @@
 <body>
     <video class="video-background" src="./IMAGES/Andrea de la Herrán, Halterofilia 49Kg_High.mp4" autoplay loop muted playsinline></video>
   <header>
-  <section class="principio" style="display: flex; align-items: center; justify-content: center; gap: 18px;">
-    <img src="./IMAGES/woman-holding-dumbbells-illustration-black-color-silhouette-vector.png" style="width: 70px; height: 70px; border-radius: 12px;" alt="GymSis">
-    <h1 style="font-size: 2.2rem; margin: 0; color: #f87ad6; text-shadow: 2px 2px 8px #3d0c4a, 0 0 4px #fff; letter-spacing: 1.5px; font-weight: bold; text-transform: uppercase;">FORMULARIO GYMSIS</h1>
-  </section>
-</header>
+    <div style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 18px 0 10px 0; gap: 32px;">
+      <img src="./IMAGES/woman-holding-dumbbells-illustration-black-color-silhouette-vector.png" style="width: 60px; height: 60px; border-radius: 12px; box-shadow: 0 2px 8px #3d0c4a55;" alt="GymSis">
+      <h1 style="font-size: 2rem; margin: 0; color: #f87ad6; text-shadow: 1px 1px 4px #3d0c4a, 0 0 2px #fff; letter-spacing: 1px; font-weight: bold; text-transform: uppercase;">GYMSIS FORMULARIO</h1>
+      <nav style="display: flex; gap: 24px; margin-left: 120px;">
+        <!-- Existing nav links can be added here -->
+      </nav>
+    </div>
+  </header>
   <form onsubmit="guardarDatosPersonales(event)">  
     <h2><strong>FICHA TECNICA</strong></h2>
     <div class="informacion-personal">
@@ -76,12 +79,10 @@
       </div>
       <br><br>
     </div>
-    <footer style="background: none; box-shadow: none; border: none;">
-      <li style="list-style: none; margin: 0; padding: 0;">
-        <a href="index.html" title="Inicio" style="background: none; box-shadow: none; border: none; padding: 0;">
-          <img src="./ICONOS/cerrar-sesion.png" alt="Salir" style="width:40px; height:40px; vertical-align:middle; background: none; box-shadow: none; border: none;">
-        </a>
-      </li>
+    <footer>
+      <a href="index.html" title="Salir">
+        <img src="./ICONOS/cerrar-sesion.png" alt="Salir" style="width: 32px; height: 32px; border-radius: 50%; box-shadow: 0 2px 8px #3d0c4a33; background: #fff; padding: 3px; transition: box-shadow 0.2s; display: block; margin: 0 auto;">
+      </a>
     </footer>
   </form>     
   <script>
